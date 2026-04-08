@@ -30,7 +30,6 @@
       margin: 15px 0; 
     }
 
-    /* Banner de activación si el navegador bloquea el autoplay */
     #clickBanner {
       display: none;
       position: fixed;
@@ -57,15 +56,18 @@
     <h1>KAJSDKSA</h1>
     
     <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
+    
+    <!-- VIDEO CORREGIDO (este sí carga) -->
     <video autoplay loop muted playsinline>
-      <source src="https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rickroll3.mp4" type="video/mp4">
+      <source src="https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4" type="video/mp4">
     </video>
+
     <p>Encuentra mis otros proyectos en mi <a href="https://github.com/Mixiruri" target="_blank">página de Github</a>!</p>
     <p>El código fuente está <a href="https://github.com/Mixiruri/rickroll" target="_blank">aquí</a>!</p>
     <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
   </div>
 
-  <!-- Never Gonna Give You Up desde Internet Archive (permite hotlinking) -->
+  <!-- CANCIÓN Never Gonna Give You Up -->
   <audio id="rickAudio" loop>
     <source src="https://ia801402.us.archive.org/7/items/NeverGonnaGiveYouUp/Never%20Gonna%20Give%20You%20Up.mp3" type="audio/mpeg">
   </audio>
@@ -76,17 +78,12 @@
 
     function activarAudio() {
       audio.volume = 0.8;
-      audio.play().then(() => {
-        banner.style.display = 'none';
-      }).catch(console.warn);
+      audio.play().then(() => banner.style.display = 'none');
     }
 
     window.addEventListener('load', () => {
-      audio.volume = 0.8;
       audio.play().catch(() => {
-        // El navegador bloqueó el autoplay → mostrar banner y esperar clic
         banner.style.display = 'block';
-        document.body.addEventListener('click', activarAudio, { once: true });
       });
     });
   </script>
