@@ -11,7 +11,6 @@
       font-family: Arial, Helvetica, sans-serif;
       cursor: url('https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rick.PNG'), auto;
     }
-
     .container {
       background-color: white;
       max-width: 800px;
@@ -21,51 +20,73 @@
       transform: rotate(0.5deg);
       text-align: center;
     }
-
     video {
       width: 100%;
       max-width: 720px;
       margin: 20px 0;
     }
-
     h1 { 
       font-size: 3.2em; 
       margin: 15px 0; 
     }
+
+    /* Banner de activación si el navegador bloquea el autoplay */
+    #clickBanner {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: #ffff00;
+      color: #000;
+      text-align: center;
+      padding: 12px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+
+  <div id="clickBanner" onclick="activarAudio()">
+    🎵 Haz clic aquí para activar el audio 🎵
+  </div>
+
   <div class="container">
     <p><strong>Acabas de ser rickrolleaodxd</strong></p>
     <h1>KAJSDKSA</h1>
     
     <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
-
     <video autoplay loop muted playsinline>
       <source src="https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rickroll3.mp4" type="video/mp4">
     </video>
-
     <p>Encuentra mis otros proyectos en mi <a href="https://github.com/Mixiruri" target="_blank">página de Github</a>!</p>
     <p>El código fuente está <a href="https://github.com/Mixiruri/rickroll" target="_blank">aquí</a>!</p>
     <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
   </div>
 
-  <!-- CANCIÓN REAL - Never Gonna Give You Up -->
-  <audio id="rickSong" autoplay loop>
-    <source src="https://www.myinstants.com/media/sounds/never-gonna-give-u-up.mp3" type="audio/mpeg">
+  <!-- Never Gonna Give You Up desde Internet Archive (permite hotlinking) -->
+  <audio id="rickAudio" loop>
+    <source src="https://ia801402.us.archive.org/7/items/NeverGonnaGiveYouUp/Never%20Gonna%20Give%20You%20Up.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Intenta reproducir automáticamente
+    const audio = document.getElementById('rickAudio');
+    const banner = document.getElementById('clickBanner');
+
+    function activarAudio() {
+      audio.volume = 0.8;
+      audio.play().then(() => {
+        banner.style.display = 'none';
+      }).catch(console.warn);
+    }
+
     window.addEventListener('load', () => {
-      const audio = document.getElementById('rickSong');
-      audio.volume = 0.8; // Volumen medio-alto
-      
+      audio.volume = 0.8;
       audio.play().catch(() => {
-        // Si el navegador lo bloquea, reproduce al primer click
-        document.body.addEventListener('click', () => {
-          audio.play();
-        }, { once: true });
+        // El navegador bloqueó el autoplay → mostrar banner y esperar clic
+        banner.style.display = 'block';
+        document.body.addEventListener('click', activarAudio, { once: true });
       });
     });
   </script>
