@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>YOU GOT RICKROLLED</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/youjustgotrickd.jpg') repeat;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: url('https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rick.PNG'), auto;
+    }
+
+    .container {
+      background-color: white;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      transform: rotate(0.5deg);
+      text-align: center;
+    }
+
+    video {
+      width: 100%;
+      max-width: 720px;
+      margin: 20px 0;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>Yo how do you like my epic website</p>
+    <h1>LOL U GOT RICKROLLED</h1>
+    
+    <p>
+      <a href="https://github.com/Mixiruri" target="_blank">If you came here for an actual about me, click here!</a>
+    </p>
+
+    <video autoplay loop muted playsinline>
+      <source src="https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rickroll3.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+
+    <p>
+      Find some of my other projects on my 
+      <a href="https://github.com/Mixiruri" target="_blank">Github page</a>!
+    </p>
+
+    <p>
+      Source code for this page can be found 
+      <a href="https://github.com/Mixiruri" target="_blank">here</a>!
+    </p>
+
+    <p>
+      Contáctame en Discord: <strong>@nnenaza</strong>
+    </p>
+  </div>
+
+  <!-- Popup después de 8 segundos -->
+  <script>
+    setTimeout(() => {
+      const popup = confirm("🎉 ACABAS DE SER RICKROLLEADO 🎉\n\nYou just got rickrolled lol");
+      if (popup) {
+        window.open("https://www.youtube.com/watch?v=dQw4w9wgxcq", "_blank");
+      }
+    }, 8000);
+  </script>
+</body>
+</html>
