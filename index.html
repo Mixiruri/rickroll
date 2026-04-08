@@ -50,16 +50,22 @@
     <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
   </div>
 
-  <!-- CANCIÓN Never Gonna Give You Up -->
+  <!-- CANCIÓN REAL - Never Gonna Give You Up -->
   <audio id="rickSong" autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <source src="https://www.myinstants.com/media/sounds/never-gonna-give-u-up.mp3" type="audio/mpeg">
   </audio>
 
   <script>
+    // Intenta reproducir automáticamente
     window.addEventListener('load', () => {
       const audio = document.getElementById('rickSong');
+      audio.volume = 0.8; // Volumen medio-alto
+      
       audio.play().catch(() => {
-        document.body.addEventListener('click', () => audio.play(), { once: true });
+        // Si el navegador lo bloquea, reproduce al primer click
+        document.body.addEventListener('click', () => {
+          audio.play();
+        }, { once: true });
       });
     });
   </script>
