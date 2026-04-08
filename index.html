@@ -57,7 +57,7 @@
     
     <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
     
-    <!-- VIDEO CORREGIDO (este sí carga) -->
+    <!-- Video corregido -->
     <video autoplay loop muted playsinline>
       <source src="https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4" type="video/mp4">
     </video>
@@ -67,7 +67,7 @@
     <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
   </div>
 
-  <!-- CANCIÓN Never Gonna Give You Up -->
+  <!-- MÚSICA Never Gonna Give You Up -->
   <audio id="rickAudio" loop>
     <source src="https://ia801402.us.archive.org/7/items/NeverGonnaGiveYouUp/Never%20Gonna%20Give%20You%20Up.mp3" type="audio/mpeg">
   </audio>
@@ -78,7 +78,9 @@
 
     function activarAudio() {
       audio.volume = 0.8;
-      audio.play().then(() => banner.style.display = 'none');
+      audio.play().then(() => {
+        banner.style.display = 'none';
+      });
     }
 
     window.addEventListener('load', () => {
