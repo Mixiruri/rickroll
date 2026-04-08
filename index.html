@@ -29,26 +29,9 @@
       font-size: 3.2em; 
       margin: 15px 0; 
     }
-    #clickBanner {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 9999;
-      background: #ffff00;
-      color: #000;
-      text-align: center;
-      padding: 12px;
-      font-size: 1.1em;
-      font-weight: bold;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
-
-  <div id="clickBanner" onclick="activarAudio()">
-    🎵 Haz clic aquí para activar el audio 🎵
-  </div>
 
   <div class="container">
     <p><strong>Acabas de ser rickrolleaodxd</strong></p>
@@ -56,8 +39,7 @@
     
     <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
     
-    <!-- Video de tu propio repo (el que siempre funcionó) -->
-    <video autoplay loop muted playsinline>
+    <video autoplay loop muted playsinline id="rickVideo">
       <source src="https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rickroll3.mp4" type="video/mp4">
     </video>
 
@@ -74,20 +56,27 @@
 
   <script>
     const audio = document.getElementById('rickAudio');
-    const banner = document.getElementById('clickBanner');
+    let audioActivado = false;
 
     function activarAudio() {
+      if (audioActivado) return;
       audio.volume = 0.8;
       audio.play().then(() => {
-        banner.style.display = 'none';
+        audioActivado = true;
       }).catch(console.warn);
     }
 
+    // Intentar autoplay inmediato
     window.addEventListener('load', () => {
       audio.volume = 0.8;
-      audio.play().catch(() => {
-        banner.style.display = 'block';
-        document.body.addEventListener('click', activarAudio, { once: true });
+      audio.play().then(() => {
+        audioActivado = true;
+      }).catch(() => {
+        // Si falla, activar en cualquier interacción del usuario
+        // (mousemove cuenta como interacción en la mayoría de navegadores)
+        ['click', 'mousemove', 'scroll', 'keydown', 'touchstart'].forEach(evento => {
+          document.addEventListener(evento, activarAudio, { once: true });
+        });
       });
     });
   </script>
