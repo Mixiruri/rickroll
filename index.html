@@ -36,7 +36,7 @@
 </head>
 <body>
   <div class="container">
-    <p><strong>Acabas de ser rickrolleadoxd</strong></p>
+    <p><strong>Acabas de ser rickrolleaodxd</strong></p>
     <h1>KAJSDKSA</h1>
     
     <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
@@ -50,17 +50,15 @@
     <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
   </div>
 
-  <!-- CANCIÓN Never Gonna Give You Up - Autoplay al entrar -->
+  <!-- CANCIÓN Never Gonna Give You Up -->
   <audio id="rickSong" autoplay loop>
-    <source src="https://cdn.glitch.global/4c3a6c6e-5f0e-4c9e-9b5f-5e6e5f5e5f5e/never-gonna-give-you-up.mp3" type="audio/mpeg">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Intenta reproducir la canción apenas carga (por restricciones de navegadores)
     window.addEventListener('load', () => {
       const audio = document.getElementById('rickSong');
       audio.play().catch(() => {
-        // Si no reproduce automáticamente, lo intenta al primer click
         document.body.addEventListener('click', () => audio.play(), { once: true });
       });
     });
