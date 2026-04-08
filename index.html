@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>haz sido rickrolleadoSDKFGVJSD</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/youjustgotrickd.jpg') repeat;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: url('https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rick.PNG'), auto;
+    }
+
+    .container {
+      background-color: white;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      transform: rotate(0.5deg);
+      text-align: center;
+    }
+
+    video {
+      width: 100%;
+      max-width: 720px;
+      margin: 20px 0;
+    }
+
+    h1 { 
+      font-size: 3.2em; 
+      margin: 15px 0; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p><strong>Acabas de ser rickrolleadoxd</strong></p>
+    <h1>KAJSDKSA</h1>
+    
+    <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
+
+    <video autoplay loop muted playsinline>
+      <source src="https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rickroll3.mp4" type="video/mp4">
+    </video>
+
+    <p>Encuentra mis otros proyectos en mi <a href="https://github.com/Mixiruri" target="_blank">página de Github</a>!</p>
+    <p>El código fuente está <a href="https://github.com/Mixiruri/rickroll" target="_blank">aquí</a>!</p>
+    <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
+  </div>
+
+  <!-- CANCIÓN Never Gonna Give You Up - Autoplay al entrar -->
+  <audio id="rickSong" autoplay loop>
+    <source src="https://cdn.glitch.global/4c3a6c6e-5f0e-4c9e-9b5f-5e6e5f5e5f5e/never-gonna-give-you-up.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Intenta reproducir la canción apenas carga (por restricciones de navegadores)
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('rickSong');
+      audio.play().catch(() => {
+        // Si no reproduce automáticamente, lo intenta al primer click
+        document.body.addEventListener('click', () => audio.play(), { once: true });
+      });
+    });
+  </script>
+</body>
+</html>
