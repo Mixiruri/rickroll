@@ -57,7 +57,6 @@
     
     <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
     
-    <!-- Video corregido -->
     <video autoplay loop muted playsinline>
       <source src="https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4" type="video/mp4">
     </video>
@@ -67,9 +66,11 @@
     <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
   </div>
 
-  <!-- MÚSICA Never Gonna Give You Up -->
   <audio id="rickAudio" loop>
+    <!-- Varios fallbacks en orden, el navegador usa el primero que cargue -->
+    <source src="https://ia903400.us.archive.org/1/items/NeverGonnaGiveYouUp_201903/Never%20Gonna%20Give%20You%20Up.mp3" type="audio/mpeg">
     <source src="https://ia801402.us.archive.org/7/items/NeverGonnaGiveYouUp/Never%20Gonna%20Give%20You%20Up.mp3" type="audio/mpeg">
+    <source src="https://ia600107.us.archive.org/32/items/NeverGonnaGiveYouUp_201903/Never%20Gonna%20Give%20You%20Up.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -80,12 +81,14 @@
       audio.volume = 0.8;
       audio.play().then(() => {
         banner.style.display = 'none';
-      });
+      }).catch(console.warn);
     }
 
     window.addEventListener('load', () => {
+      audio.volume = 0.8;
       audio.play().catch(() => {
         banner.style.display = 'block';
+        document.body.addEventListener('click', activarAudio, { once: true });
       });
     });
   </script>
