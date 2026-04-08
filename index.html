@@ -28,9 +28,33 @@
       margin: 20px 0;
     }
 
-    h1 {
-      font-size: 3.2em;
-      margin: 15px 0;
+    h1 { font-size: 3.2em; margin: 15px 0; }
+
+    /* POPUP BONITO */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #6b00b3, #9b00ff);
+      margin: 15% auto;
+      padding: 25px;
+      width: 90%;
+      max-width: 420px;
+      border-radius: 15px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(155, 0, 255, 0.6);
+    }
+
+    .modal-content h2 {
+      margin: 0 0 15px 0;
+      font-size: 1.8em;
     }
   </style>
 </head>
@@ -39,35 +63,35 @@
     <p><strong>Yo bro, ¿qué te pareció mi épica web?</strong></p>
     <h1>LOL TE HICIERON RICKROLL</h1>
     
-    <p>
-      <a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a>
-    </p>
+    <p><a href="https://github.com/Mixiruri" target="_blank">Si viniste buscando un "acerca de mí", haz clic aquí!</a></p>
 
     <video autoplay loop muted playsinline>
       <source src="https://raw.githubusercontent.com/watchbutdonotlearn/watchbutdonotlearn.github.io/main/rickroll3.mp4" type="video/mp4">
-      Tu navegador no soporta el video.
     </video>
 
-    <p>
-      Encuentra mis otros proyectos en mi 
-      <a href="https://github.com/Mixiruri" target="_blank">página de Github</a>!
-    </p>
-
-    <p>
-      El código fuente de esta página está 
-      <a href="https://github.com/Mixiruri/rickroll" target="_blank">aquí</a>!
-    </p>
-
-    <p>
-      Contáctame en Discord: <strong>@nnenaza</strong>
-    </p>
+    <p>Encuentra mis otros proyectos en mi <a href="https://github.com/Mixiruri" target="_blank">página de Github</a>!</p>
+    <p>El código fuente está <a href="https://github.com/Mixiruri/rickroll" target="_blank">aquí</a>!</p>
+    <p>Contáctame en Discord: <strong>@nnenaza</strong></p>
   </div>
 
-  <!-- Popup después de 8 segundos -->
+  <!-- POPUP BONITO -->
+  <div id="rickModal" class="modal">
+    <div class="modal-content">
+      <h2>🎉 ACABAS DE SER RICKROLLEADO 🎉</h2>
+      <p style="font-size:1.3em;">Nunca van a dejar de rickrolleandote xd</p>
+      <br>
+      <button onclick="document.getElementById('rickModal').style.display='none'" 
+              style="padding:12px 30px; font-size:1.1em; background:white; color:#6b00b3; border:none; border-radius:8px; cursor:pointer;">
+        Aceptar
+      </button>
+    </div>
+  </div>
+
   <script>
+    // Aparece después de 7 segundos
     setTimeout(() => {
-      alert("🎉 ACABAS DE SER RICKROLLEADO 🎉\n\nNunca van a dejar de rickrolleandote xd");
-    }, 8000);
+      document.getElementById('rickModal').style.display = 'block';
+    }, 7000);
   </script>
 </body>
 </html>
